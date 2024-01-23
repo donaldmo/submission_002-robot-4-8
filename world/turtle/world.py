@@ -52,8 +52,13 @@ def update_position(steps, current_direction_index, my_turtle=None, my_obstacles
     elif directions[current_direction_index] == 'left':
         new_x = new_x - steps
 
+    print('direction: ', directions[current_direction_index])
+    direction = directions[current_direction_index]
+
     if my_obstacles and my_turtle:
-        if obstacles.is_position_blocked(new_x, new_y, my_turtle, my_obstacles):
+        if obstacles.is_position_blocked(
+            new_x, new_y, direction, my_turtle, my_obstacles
+        ):
             raise Exception('Sorry, there is an obstacle in the way.')
             
     if is_position_allowed(new_x, new_y):

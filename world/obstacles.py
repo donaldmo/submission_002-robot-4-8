@@ -13,12 +13,29 @@ def get_obstacles():
     return obstacles
 
 
-def is_position_blocked(x, y, my_turtle=None, obstacles=None):
+def is_position_blocked(x, y,direction=None, my_turtle=None, obstacles=None):
     is_blocked = False
 
     if isinstance(obstacles, list) and my_turtle:
+        current_pos = my_turtle.pos()
+        print('current pos: ', my_turtle.pos())
+        print('new pos: ', (x, y))
 
-        if (x, y) in obstacles:
-            is_blocked = True
+        if direction == 'forward':
+            # get positive y values
+            
+            # y_positive = [x[1] for x in obstacles is x >= 0]
+            y_positive = []
+
+            for i in obstacles:
+                if i[1] >= 0 and i[0] >= 0 and current_pos[0] == i[0]:
+                    y_positive.append(i[1])
+            
+            if len(y_positive) and y >= min(y_positive):
+                is_blocked = True
+
+
+        # if (x, y) in obstacles:
+        #     is_blocked = True
 
     return is_blocked
