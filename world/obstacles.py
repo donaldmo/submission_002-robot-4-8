@@ -48,4 +48,8 @@ def is_position_blocked(x, y,direction=None, my_turtle=None, obstacles=None):
                 if len(x_values) and min(x_values) and y >= min(x_values):
                     is_blocked = True
 
+        if direction == 'right':
+            print('direction is: ', direction)
+
+
     return is_blocked
