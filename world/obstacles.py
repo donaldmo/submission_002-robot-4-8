@@ -21,21 +21,31 @@ def is_position_blocked(x, y,direction=None, my_turtle=None, obstacles=None):
         print('current pos: ', my_turtle.pos())
         print('new pos: ', (x, y))
 
+        x_negative = []
+        x_positive = []
+
         if direction == 'forward':
-            # get positive y values
-            
-            # y_positive = [x[1] for x in obstacles is x >= 0]
-            y_positive = []
+            # updating y values, so check y values
+            if current_pos[0] >= 0:
+                print('get all positive x')
+                x_positive = [x for x in obstacles if x[0] >= 0]
+                print(x_positive)
 
-            for i in obstacles:
-                if i[1] >= 0 and i[0] >= 0 and current_pos[0] == i[0]:
-                    y_positive.append(i[1])
-            
-            if len(y_positive) and y >= min(y_positive):
-                is_blocked = True
+                x_values = [n[1] for n in x_positive if n[0] == current_pos[0]]
+                print(x_values)
 
+                if len(x_values) and min(x_values) and y >= min(x_values):
+                    is_blocked = True
 
-        # if (x, y) in obstacles:
-        #     is_blocked = True
+            else:
+                x_negative = [x for x in obstacles if x[0] < 0]
+                print('get all negative x')
+                print(x_negative)
+
+                x_values = [n[1] for n in x_negative if n[0] == current_pos[0]]
+                print(min(x_values))
+
+                if len(x_values) and min(x_values) and y >= min(x_values):
+                    is_blocked = True
 
     return is_blocked

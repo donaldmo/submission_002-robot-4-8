@@ -10,11 +10,11 @@ from world.text import world
 
 
 my_turtle = None
-my_obstacles = obstacles.get_obstacles()
+# my_obstacles = obstacles.get_obstacles()
 
-my_obstacles.pop()
-my_obstacles.append((0, 70))
-
+# my_obstacles.pop()
+# my_obstacles.append((0, 70))
+my_obstacles = [(-82, 26), (-77, 11), (28, -21), (21, -7), (-97, -31), (-14, -33), (-54, 13), (0, 40), (0, 70), (-10, 70)]
 
 if len(sys.argv) == 1:
     from world.text import world
@@ -288,7 +288,6 @@ def handle_command(robot_name, command):
     :param command: the command entered by user
     :return: `True` if the robot must continue after the command, or else `False` if robot must shutdown
     """
-
     (command_name, arg) = split_command_input(command)
 
     if command_name == 'off':
@@ -356,6 +355,7 @@ def robot_start():
     
     # print('obstacles: ', my_obstacles)
     print_obstacles(my_obstacles)
+    print(my_obstacles)
 
     command = get_command(robot_name)
     while handle_command(robot_name, command):

@@ -22,7 +22,7 @@ def use_turtle():
     screen.setup(width=480, height=768)
 
     turtle_robot = turtle.Turtle()
-    turtle_robot.shape('turtle')
+    # turtle_robot.shape('turtle')
     turtle_robot.setheading(90)
 
     constrained_turtle = turtle.Turtle()
