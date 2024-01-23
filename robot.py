@@ -14,7 +14,7 @@ my_turtle = None
 
 # my_obstacles.pop()
 # my_obstacles.append((0, 70))
-my_obstacles = [(70, -10), (10, -70), (-10, 70), (-70, 10)]
+my_obstacles = [(0, 70), (70, -10), (10, -70), (-10, 70), (-70, 10)]
 
 if len(sys.argv) == 1:
     from world.text import world
