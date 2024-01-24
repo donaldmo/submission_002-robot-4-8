@@ -14,7 +14,7 @@ my_turtle = None
 
 # my_obstacles.pop()
 # my_obstacles.append((0, 70))
-my_obstacles = [(0, 70), (70, -10), (10, -70), (-10, 70), (-70, 10)]
+my_obstacles = [(70, 0), (-70, 0), (0, -70), (0, 70), (70, -10), (10, -70), (-10, 70), (-70, 10)]
 
 if len(sys.argv) == 1:
     from world.text import world
@@ -156,6 +156,7 @@ def do_right_turn(robot_name, ):
     if current_direction_index > 3:
         current_direction_index = 0
 
+    my_turtle.right(90)
     return True, ' > '+robot_name+' turned right.'
 
 
@@ -170,7 +171,8 @@ def do_left_turn(robot_name):
     current_direction_index -= 1
     if current_direction_index < 0:
         current_direction_index = 3
-
+    
+    my_turtle.left(90)
     return True, ' > '+robot_name+' turned left.'
 
 
